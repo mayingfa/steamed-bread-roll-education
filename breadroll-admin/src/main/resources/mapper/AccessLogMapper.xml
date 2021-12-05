@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.qiudb.mapper.AccessLogMapper">
+    <!--添加访问日志-->
+    <insert id="insertAccessLog" parameterType="AccessLog">
+        insert into access_log (user_account, user_name, user_type, access_time, ip_address, city)
+        values (#{userAccount},#{userName},#{userType},#{accessTime},#{ipAddress},#{city});
+    </insert>
+
+    <!--分页所有日志-->
+    <select id="queryAllLog" resultType="AccessLog">
+        select * from access_log order by access_time desc
+    </select>
+
+    <!--查询日志数量-->
+    <select id="queryAllCount" resultType="Integer">
+        select count(*) from access_log
+    </select>
+
+    <!--搜索日志信息-->
+    <select id="queryLog" resultType="AccessLog" parameterType="AccessLog">
+        select * from access_log
+        <where>
+            <if test="accessTime!=null">
+                and datediff(access_time,#{accessTime})=0
+            </if>
+            order by access_time desc
+        </where>
+    </select>
+
+    <!--搜索日志数量-->
+    <select id="queryCount" resultType="Integer" parameterType="AccessLog">
+        select count(*) from access_log
+        <where>
+            <if test="accessTime!=null">
+                and datediff(access_time,#{accessTime})=0
+            </if>
+        </where>
+    </select>
+</mapper>
