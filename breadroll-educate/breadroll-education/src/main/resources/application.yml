@@ -49,4 +49,4 @@ spring:
     # 是否输出操作日志
     is-log: false
     # 打印版本字符画
-    isV: true
+    isV: false

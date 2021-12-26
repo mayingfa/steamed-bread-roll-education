@@ -202,6 +202,11 @@ public class UserController {
         HashMap<String, Object> data = new HashMap<>();
         Integer userId  = StpUtil.getLoginIdAsInt();
         User user = userService.queryUserById(userId);
+        if(user==null){
+            data.put("userState",true);
+            data.put("isVip", false);
+            return ResultVO.success("检测成功",data);
+        }
         //获取用户会员信息
         UserVip userVip = userVipService.queryUserVipByUserId(userId);
         if(userVip!=null) {

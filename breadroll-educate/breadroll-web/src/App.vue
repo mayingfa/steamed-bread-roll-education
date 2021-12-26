@@ -28,6 +28,9 @@ export default {
     if(this.$store.state.userInfo===null && this.$cookie.getToken()!==null){
       this.$userApi.getUserInfo().then(res=>{
         this.$store.commit('saveUserInfo',res.data);  //保存用户信息
+      }).catch(error => {
+        this.$cookie.clearToken();
+        this.$store.commit("saveUserInfo","");
       });
     }
     if(this.$store.state.vipInfo===null && this.$cookie.getToken()!==null){

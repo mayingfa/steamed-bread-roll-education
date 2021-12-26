@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
+/**
+ * @author Dt
+ */
 @SpringBootApplication
 @MapperScan("top.qiudb.mapper")	//指定Dao包
 @ServletComponentScan

@@ -1,10 +1,10 @@
 spring:
   mail:
-    host: smtp.163.com #发送邮件服务器
-    username: 15233088662@163.com #发送邮件的邮箱地址
-    password: PECCHGRXRGBJPLOY #客户端授权码，不是邮箱密码,网易的是自己设置的
-    properties.mail.smtp.port: 994 #465或者994
-    from: 15233088662@163.com # 发送邮件的地址，和上面username一致
+    host: smtp.163.com # Sending mail server
+    username: ENC(u7YH6/CHkh2GCvOaKO1/EAGM3Hv/JxwHStBfOKIW+VebdgsoGvLRCn9ab/1/MtTVoE9Tok6HrSwCIbS6LdRplg==) # Email address for sending emails
+    password: ENC(ENxxWoJw9TAnnqQPPLty/uTAAOLl4s8OU6X0o8Acb7b8vvoeEjO4oq2Dz78S9ktwlVvd5Q1D5h9tWMOk/rSSuA==) # Client authorization code
+    properties.mail.smtp.port: 994 # 465 or 994
+    from: ENC(cr/zWMtoafv8KojoTxtvjvjgytsNqCjll1lOQAyFmpdOl/QgTPyUmuMZgi/uidz0F6wAAWVGM9DvM+35/nCzQw==) # The address from which the email is sent
     nickname: 花卷教育
     properties.mail.smtp.starttls.enable: true
     properties.mail.smtp.starttls.required: true
@@ -13,9 +13,9 @@ spring:
 
 sms:
   aliyun:
-    accessKeyID: LTAI4GDr1DAsYncMPsk9Db59 # accessKeyID
-    accessKeySecret: Qrxv4BgkI6sAYNpG7rX5IHWVc5mKoG # accessKeySecret
-    domain: dysmsapi.aliyuncs.com # 固定不变
-    regionId: cn-hangzhou # 固定不变
-    templateCode: SMS_215344833 # 你的模板code
-    signName: 花卷买卖 # 你的签名
+    accessKeyID: ENC(THKs1rvR56IqYbqeyT1JN7YAiimpYzsQshla2o0Qe0qdnw1milM4Gr7A8U2rlaxX6Ac25S5nqopdmCLthfGqdQ==) # accessKeyID
+    accessKeySecret: ENC(g9eAsbtb9A7uU2NF3zcPsJOiui/BsMpv3S7+XrrXb93PCDVUtuaJ5tIv8SJZpb0LChYwE1AX+HZ9lcJF/XPoiQ==) # accessKeySecret
+    domain: dysmsapi.aliyuncs.com
+    regionId: cn-hangzhou
+    templateCode: SMS_215344833 # your template code
+    signName: 花卷买卖 # your signature

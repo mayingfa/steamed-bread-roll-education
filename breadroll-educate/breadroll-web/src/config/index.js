@@ -8,10 +8,12 @@ const config =  {
 
   // api请求基础路径
   getBaseUrl(){
-    if(serverConfig.isEnableDeployUrl){
-      return serverConfig.deployUrl;
-    }
-    return serverConfig.developmentUrl;
+    // if(serverConfig.isEnableDeployUrl){
+    //   return serverConfig.deployUrl;
+    // }
+    const developmentUrl = "http://127.0.0.1:8000";
+    const deployUrl = "http://edu.qiudb.top";
+    return deployUrl;
   },
 
   //默认头像

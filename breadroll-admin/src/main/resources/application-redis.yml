@@ -1,12 +1,7 @@
 spring:
   redis:
-    # Redis数据库索引（默认为0）
     database: 1
-    # Redis服务器地址
-    host: 112.126.92.148  # 112.126.92.148
-    # Redis服务器连接端口
+    host: redisdb
     port: 6379
-    # Redis 密码
-    password: 123456
-    # Redis 超时时间
+    password: ENC(R/UvjU3NSOdxkf3ms1b6Uml3uBpP/vvJPF8HGcJGWktlGtA7mk1HT3GNyEGAhSqR)
     timeout: 10000

@@ -1,12 +1,12 @@
 # Steamed Bread Roll Education
 
-#### 前言
+### 前言
 
 花卷教育 | 随时随地 · 一站学习
 
 项目致力于提供一个一站式学习平台，采用现阶段流行技术实现。
 
-#### 项目体验
+### 项目体验
 
 后台管理系统`breadroll-admin`地址：http://admin.qiudb.top
 
@@ -20,8 +20,67 @@
 用户名: 1325554003@qq.com	密码: M123456
 ```
 
+### 支付宝沙箱支付
 
-#### 项目介绍
+支付帐号：[ilikkj2173@sandbox.com](mailto:ilikkj2173@sandbox.com)
+
+登录密码：111111
+
+支付密码：111111
+
+### 迭代更新
+
+> 更新时间：2021-12-26
+
+不兼容升级：
+
+1. 支持Docker部署，通过Dockerfile构建镜像
+2. yml配置文件加密处理，不对外暴露配置文件信息
+3. 启动项目时，需要传入配置文件解密密钥，或者将配置文件切换成自己的
+4. 增加logback日志配置
+
+###  Docker部署项目
+
+#### breadroll-admin 项目
+
+```shell
+# Dockerfile 构建项目
+docker build -t breadroll-project/breadroll-admin:1.0 .
+```
+
+```shell
+# docker 启动项目
+docker run -d -p 9000:9000 --name breadroll-admin \
+-e jasypt_password="your password" \
+-v /etc/localtime:/etc/localtime \
+-v /docker/project/admin/logs:/log \
+-v /docker/project/admin/upload:/upload \
+--link redis:redisdb \
+--link mysql:mysqldb \
+breadroll-project/breadroll-admin:1.0
+```
+
+#### breadroll-educate 项目
+
+```shell
+# Dockerfile 构建项目
+docker build -t breadroll-project/breadroll-education:1.0 .
+```
+
+```shell
+# docker 启动项目
+docker run -d -p 8000:8000 --name breadroll-education \
+-e jasypt_password="your password" \
+-v /etc/localtime:/etc/localtime \
+-v /docker/project/educate/logs:/log \
+-v /docker/project/educate/upload:/upload \
+-v /docker/project/admin/upload:/admin/upload \
+--link redis:redisdb \
+--link mysql:mysqldb \
+breadroll-project/breadroll-education:1.0
+```
+
+### 项目介绍
 
 `Bread Roll Education` 是一套在线教育平台，包括用户在线学习系统及后台管理系统。
 
@@ -42,8 +101,6 @@
 项目数据库设计
 
 ![花卷教育-数据库](images/花卷教育-数据库.png)
-
-
 
 #### 项目技术
 
@@ -74,9 +131,7 @@
 | vuex-persistedstate | vuex持久化         | https://www.npmjs.com/package/vuex-persistedstate     |
 | nprogress           | 进度条控件         | https://github.com/rstacruz/nprogress                 |
 
-
-
-#### 开发环境
+### 开发环境
 
 | 工具  | 版本号 | 下载                                                         |
 | ----- | ------ | ------------------------------------------------------------ |
@@ -84,9 +139,7 @@
 | Mysql | 5.7    | https://www.mysql.com/                                       |
 | Redis | 5.0.10 | https://redis.io/download                                    |
 
-
-
-#### 项目部署
+### 项目部署
 
 将项目通过maven打成jar包，服务器运行jar包即可
 
@@ -100,19 +153,7 @@
 994		# 网易163邮箱 服务端口
 ```
 
-
-
-#### 支付宝沙箱支付
-
-支付帐号：[ilikkj2173@sandbox.com](mailto:ilikkj2173@sandbox.com)
-
-登录密码：111111
-
-支付密码：111111
-
-
-
-#### 项目演示
+### 项目演示
 
 ##### 免责声明
 

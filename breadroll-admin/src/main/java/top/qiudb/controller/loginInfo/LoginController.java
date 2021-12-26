@@ -76,7 +76,7 @@ public class LoginController {
         AccessLog accessLog = new AccessLog();
         accessLog.setUserAccount(manager.getManagerAccount());
         accessLog.setUserName(manager.getManagerName());
-        String ip = IpUtil.getIpAddr(request);
+        String ip = IpUtil.getIpAddress(request);
         accessLog.setAccessTime(new Date());
         accessLog.setIpAddress(ip);
         String ipCity = IpToAddressUtil.getCityInfo(ip);

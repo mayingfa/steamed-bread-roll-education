@@ -11,8 +11,8 @@ import java.util.Properties;
  * @description 读取配置文件信息
  */
 public class PropertiesUtil {
-    private static final String uploadUrl;
-    private static final String address;
+    private static final String UPLOAD_URL;
+    private static final String ADDRESS;
     static {
         Properties properties=new Properties();
         InputStream inputStream=PropertiesUtil.class.getClassLoader().getResourceAsStream("config.properties");
@@ -21,16 +21,16 @@ public class PropertiesUtil {
         } catch (IOException e) {
             System.out.println("config.properties was not found");
         }
-        uploadUrl = System.getProperty("user.dir")+"/upload/";
-        address = (String) properties.get("address");
+        UPLOAD_URL = System.getProperty("user.dir")+"/upload/";
+        ADDRESS = (String) properties.get("address");
     }
 
     public static String getUploadUrl() {
-        return uploadUrl;
+        return UPLOAD_URL;
     }
 
     public static String getAddress() {
-        return address;
+        return ADDRESS;
     }
 
 }

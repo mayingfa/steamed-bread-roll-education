@@ -11,17 +11,29 @@ import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    private static final String WINDOWS_OS = "win";
+
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
+
         //本地存放上传文件的真实地址
         String realPathDir = PropertiesUtil.getUploadUrl();
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/")
                 .addResourceLocations("classpath:/resources/");
-        //配置上传文件的映射关系
-        registry.addResourceHandler("/upload/**")
-                .addResourceLocations("file:"+realPathDir);
+
+
+        String os = System.getProperty("os.name");
+        // windows系统
+        if (os.toLowerCase().startsWith(WINDOWS_OS)) {
+            //配置上传文件的映射关系
+            registry.addResourceHandler("/upload/**")
+                    .addResourceLocations("file:"+realPathDir);
+        }else{
+            registry.addResourceHandler("/upload/**")
+                    .addResourceLocations("file://"+realPathDir);
+        }
 
         registry.addResourceHandler("doc.html").addResourceLocations(
                 "classpath:/META-INF/resources/");
