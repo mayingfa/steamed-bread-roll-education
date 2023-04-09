@@ -8,13 +8,13 @@
 
 ### 项目体验
 
-后台管理系统`breadroll-admin`地址：http://admin.qiudb.top
+后台管理系统`breadroll-admin`
 
 ```java
 用户名: admin  密码: 123456
 ```
 
-用户教育系统`breadroll-education`地址：http://edu.qiudb.top
+用户教育系统`breadroll-education`
 
 ```java
 用户名: 1325554003@qq.com	密码: M123456
